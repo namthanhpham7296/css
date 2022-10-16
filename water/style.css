@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #dedede;
+  height: 100vh;
+}
+
+.water {
+  position: absolute;
+  top: 90px;
+  left: 50px;
+  height: 150px;
+  width: 150px;
+  background-color: transparent;
+  border-radius: 48% 52% 38% 62% / 60% 37% 63% 40%;
+  box-shadow: inset 10px 10px 10px #0000000c, 15px 25px 10px #00000019,
+    inset -10px -10px 15px #ffffffe5;
+  animation: effect 2s ease-in-out infinite alternate;
+}
+
+.water::before {
+  content: "";
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 45% 55% 55% 45% / 39% 29% 71% 61%;
+  top: 20px;
+  left: 50px;
+  animation: effect 2s ease-in-out infinite alternate;
+}
+
+.water::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 57% 43% 62% 38% / 29% 51% 49% 71%;
+  top: 50px;
+  left: 20px;
+  animation: effect 2s ease-in-out infinite alternate;
+}
+
+@keyframes effect {
+  0% {
+    border-radius: 68% 32% 56% 44% / 45% 62% 38% 55%;
+  }
+  50% {
+    border-radius: 44% 56% 38% 62% / 39% 50% 50% 61%;
+  }
+  100% {
+    border-radius: 42% 58% 38% 62% / 53% 37% 63% 47%;
+  }
+}
+
+.water:nth-child(2) {
+  top: 210px;
+  left: 180px;
+  transform: scale(0.5);
+}

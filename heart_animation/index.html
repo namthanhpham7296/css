@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart For Helen</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body></body>
+  <script>
+    document.addEventListener("mousemove", function (e) {
+      let body = document.querySelector("body");
+      let heart = document.createElement("span");
+      let x = e.offsetX;
+      let y = e.offsetY;
+      let sizeHeart = Math.random() * 80;
+      let transformValue = Math.random() * 360;
+      Object.assign(heart.style, {
+        left: x + "px",
+        top: y + "px",
+        width: 20 + sizeHeart + "px",
+        height: 20 + sizeHeart + "px",
+        transform: "rotate(" + transformValue + "deg)",
+      });
+      body.appendChild(heart);
+      setTimeout(function () {
+        heart.remove();
+      }, 1000);
+    });
+  </script>
+</html>

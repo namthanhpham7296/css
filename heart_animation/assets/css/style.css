@@ -1,0 +1,56 @@
+:root {
+  --color-drop-shadow: hsl(346, 100%, 67%);
+  --background-color: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background-color);
+  overflow: hidden;
+}
+
+span {
+  position: absolute;
+  pointer-events: none;
+  animation: fade 1s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  20%,
+  80% {
+    opacity: 1;
+  }
+}
+
+span::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/heart.png);
+  background-size: cover;
+  position: absolute;
+  animation: moveShape 1s linear infinite;
+  filter: drop-shadow(0 5px 10px var(--color-drop-shadow));
+}
+
+@keyframes moveShape {
+  0% {
+    transform: translate(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(300px) rotate(360deg);
+  }
+}
