@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.dots-loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+  padding: 10px;
+}
+
+.dots-loading div {
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: var(--color);
+  animation: stagger 0.5s linear infinite alternate;
+  animation-delay: calc(-1 * (0.5 / 4) * var(--delay));
+  box-shadow: 0 0 10px var(--color);
+}
+
+@keyframes stagger {
+  0% {
+    transform: translateY(0);
+  }
+  50%,
+  100% {
+    transform: translateY(20px);
+  }
+}
