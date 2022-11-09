@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+:root {
+    --primary-color: #f20044;
+    --secondary-color: #da1c1e;
+    --color-drop-shadow: hsl(346, 100%, 67%);
+    --background-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+.heart {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 90px var(--primary-color);
+    transform: rotate(-45deg);
+    animation: heartEffect 1.2s ease-in infinite;
+    filter: drop-shadow(0 0px 50px var(--color-drop-shadow));
+}
+
+.heart::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    top: -50%;
+    border-radius: 50px;
+    box-shadow: -10px -10px 50px var(--primary-color);
+}
+
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -50%;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    box-shadow: 10px 10px 50px var(--primary-color);
+}
+
+@keyframes heartEffect {
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.25);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1.01);
+    }
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+}
+
+.loader span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(24deg * var(--i)));
+}
+
+.loader span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 10px #da1c1e, 10px 10px 5px #da1c1e, 10px 10px 10px #da1c1e, 20px 20px 10px #da1c1e,
+        20px 20px 15px #da1c1e, 30px 30px 15px #da1c1e, 30px 30px 20px #da1c1e, 40px 40px 20px #da1c1e,
+        40px 40px 25px #da1c1e;
+    animation: loaderEffect 5s ease-in-out infinite;
+}
+
+@keyframes loaderEffect {
+    0% {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
